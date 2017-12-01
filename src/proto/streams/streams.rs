@@ -287,6 +287,11 @@ where
                 })
             })
             .expect("recv_eof");
+
+        if actions.conn_error.is_none() {
+            let e: io::Error = io::ErrorKind::BrokenPipe.into();
+            actions.conn_error = Some(e.into())
+        }
     }
 
     pub fn last_processed_id(&self) -> StreamId {
