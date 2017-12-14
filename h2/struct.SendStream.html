@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SendStream` struct in crate `h2`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SendStream">
+
+    <title>h2::SendStream - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct SendStream</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>h2</a></p><script>window.sidebarCurrent = {name: 'SendStream', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>h2</a>::<wbr><a class="struct" href=''>SendStream</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/h2/share.rs.html#13-15' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct SendStream&lt;B:&nbsp;<a class="trait" href="https://docs.rs/bytes/0.4/bytes/buf/into_buf/trait.IntoBuf.html" title="trait bytes::buf::into_buf::IntoBuf">IntoBuf</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Send frames to a remote.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;B:&nbsp;<a class="trait" href="https://docs.rs/bytes/0.4/bytes/buf/into_buf/trait.IntoBuf.html" title="trait bytes::buf::into_buf::IntoBuf">IntoBuf</a>&gt; <a class="struct" href="../h2/struct.SendStream.html" title="struct h2::SendStream">SendStream</a>&lt;B&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#31-69' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.reserve_capacity' class="method"><span id='reserve_capacity.v' class='invisible'><code>pub fn <a href='#method.reserve_capacity' class='fnname'>reserve_capacity</a>(&amp;mut self, capacity: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#37-40' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Request capacity to send data</p>
+</div><h4 id='method.capacity' class="method"><span id='capacity.v' class='invisible'><code>pub fn <a href='#method.capacity' class='fnname'>capacity</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#43-45' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the stream&#39;s current send capacity.</p>
+</div><h4 id='method.poll_capacity' class="method"><span id='poll_capacity.v' class='invisible'><code>pub fn <a href='#method.poll_capacity' class='fnname'>poll_capacity</a>(&amp;mut self) -&gt; <a class="type" href="https://docs.rs/futures/0.1/futures/poll/type.Poll.html" title="type futures::poll::Poll">Poll</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>&gt;, <a class="struct" href="../h2/struct.Error.html" title="struct h2::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#48-51' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Request to be notified when the stream&#39;s capacity increases</p>
+</div><h4 id='method.send_data' class="method"><span id='send_data.v' class='invisible'><code>pub fn <a href='#method.send_data' class='fnname'>send_data</a>(&amp;mut self, data: B, end_of_stream: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>, <a class="struct" href="../h2/struct.Error.html" title="struct h2::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#54-58' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Send a single data frame</p>
+</div><h4 id='method.send_trailers' class="method"><span id='send_trailers.v' class='invisible'><code>pub fn <a href='#method.send_trailers' class='fnname'>send_trailers</a>(&amp;mut self, trailers: <a class="struct" href="https://docs.rs/http/0.1.3/http/header/map/struct.HeaderMap.html" title="struct http::header::map::HeaderMap">HeaderMap</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>, <a class="struct" href="../h2/struct.Error.html" title="struct h2::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#61-63' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Send trailers</p>
+</div><h4 id='method.send_reset' class="method"><span id='send_reset.v' class='invisible'><code>pub fn <a href='#method.send_reset' class='fnname'>send_reset</a>(&amp;mut self, reason: <a class="struct" href="../h2/struct.Reason.html" title="struct h2::Reason">Reason</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#66-68' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Reset the stream</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl&lt;B:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> + <a class="trait" href="https://docs.rs/bytes/0.4/bytes/buf/into_buf/trait.IntoBuf.html" title="trait bytes::buf::into_buf::IntoBuf">IntoBuf</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../h2/struct.SendStream.html" title="struct h2::SendStream">SendStream</a>&lt;B&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;B::<a class="type" href="https://docs.rs/bytes/0.4/bytes/buf/into_buf/trait.IntoBuf.html#associatedtype.Buf" title="type bytes::buf::into_buf::IntoBuf::Buf">Buf</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,&nbsp;</span></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#12' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/h2/share.rs.html#12' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "h2";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

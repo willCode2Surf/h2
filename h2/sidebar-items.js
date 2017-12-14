@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["client","HTTP2 client side."],["server","HTTP2 server side."]],"struct":[["Error","The error type for HTTP/2 operations"],["Reason","HTTP2 Error codes"],["RecvStream","Receive frames from a remote."],["ReleaseCapacity","A handle to release window capacity to a remote stream."],["SendStream","Send frames to a remote."]]});

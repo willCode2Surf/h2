@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Builder","Build a Client."],["Client","Marker type indicating a client peer"],["Connection","A future to drive the H2 protocol on a connection."],["Handshake","In progress H2 connection binding"],["ResponseFuture","A future of an HTTP response."]]});
